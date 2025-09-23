@@ -1,44 +1,102 @@
 ﻿# atvidade-luminosidade
 
-Projeto ESP32 com Sensor LDR e LEDs
-Descrição
+Claro! Aqui está uma versão do README com um espaço reservado para a **foto do circuito** ou **print da simulação no Wokwi**:
 
-Este projeto utiliza um microcontrolador ESP32 para ler a intensidade de luz através de um sensor LDR (fotorresistor) e controlar dois LEDs com base na leitura do sensor. O circuito é simulado no ambiente Wokwi.
+---
 
-Componentes Utilizados
+# 🌞 Projeto: Sensor de Luminosidade com ESP32 e LEDs
 
-ESP32 DevKit C
+Este projeto simula um sistema de automação de iluminação usando um sensor de luz (LDR) e dois LEDs controlados por um ESP32. Ideal para iniciantes em eletrônica e MicroPython.
 
-Sensor fotorresistor (LDR)
+---
 
-3 resistores de 1kΩ
+## 🖼️ Visão Geral do Circuito
 
-2 LEDs (vermelho e amarelo)
+**📷 Insira aqui uma imagem do circuito montado ou da simulação no Wokwi:**
 
-Protoboard e fios para conexão
+<img width="1917" height="897" alt="Captura de tela 2025-09-23 171037" src="https://github.com/user-attachments/assets/ec2e2fb0-e926-488d-a9be-b42ef16903e6" />
+![WhatsApp Image 2025-09-23 at 17 19 03 (1)](https://github.com/user-attachments/assets/1ef31af4-988e-4faf-a314-068261920336)
+![WhatsApp Image 2025-09-23 at 17 19 03 (2)](https://github.com/user-attachments/assets/a16123ab-cc42-47a1-8def-277412b01d69)
+![WhatsApp Image 2025-09-23 at 17 19 03](https://github.com/user-attachments/assets/e210fde7-60ba-4c9e-a272-810464afff7f)
 
-Esquema de Ligação
+---
 
-O sensor LDR está conectado ao pino ADC do ESP32 para medir a intensidade de luz.
+## 📦 Componentes Utilizados
 
-O LED vermelho está conectado a um dos pinos digitais do ESP32.
+| Componente                 | Quantidade | Descrição                      |
+| -------------------------- | ---------- | ------------------------------ |
+| ESP32 DevKit-C             | 1          | Microcontrolador principal     |
+| Sensor LDR (fotorresistor) | 1          | Sensor de intensidade luminosa |
+| LED vermelho               | 1          | Indica pouca luz               |
+| LED amarelo                | 1          | Indica luminosidade média/alta |
+| Resistores 1kΩ             | 3          | Limitadores de corrente        |
+| Protoboard                 | 1          | Montagem do circuito           |
 
-O LED amarelo está conectado a outro pino digital do ESP32.
+---
 
-Resistores de 1kΩ são utilizados para limitar a corrente dos LEDs e do sensor.
+## 🔌 Esquema de Ligação
 
-Funcionamento
+* **LDR** conectado ao pino 34 (entrada analógica) do ESP32.
+* **LED vermelho** no pino 15 (saída digital).
+* **LED amarelo** no pino 2 (saída digital).
+* Resistores de 1kΩ para proteger os LEDs e o sensor.
 
-O ESP32 lê o valor analógico do sensor LDR.
+---
 
-Dependendo do valor lido, os LEDs são acionados para indicar diferentes níveis de luminosidade.
+## 🧠 Lógica de Funcionamento
 
-Código
+1. O ESP32 lê o valor analógico vindo do LDR.
+2. Com base na intensidade de luz:
 
-O código deve ser escrito em MicroPython e deve:
+   * 💡 **Baixa luz** → Acende o LED vermelho.
+   * 🌤️ **Luz suficiente** → Acende o LED amarelo.
+3. A troca de LEDs é feita automaticamente de acordo com o ambiente.
 
-Inicializar os pinos dos LEDs como saída.
+---
 
-Configurar a leitura analógica do sensor LDR.
+## 💻 Código (MicroPython)
 
-Controlar os LEDs conforme a leitura do sensor.
+```python
+from machine import Pin, ADC
+from time import sleep
+
+# Configuração dos pinos
+ldr = ADC(Pin(34))  # Entrada analógica
+led_vermelho = Pin(15, Pin.OUT)
+led_amarelo = Pin(2, Pin.OUT)
+
+while True:
+    valor = ldr.read()
+    print("Luminosidade:", valor)
+
+    if valor < 1500:
+        led_vermelho.on()
+        led_amarelo.off()
+    else:
+        led_vermelho.off()
+        led_amarelo.on()
+    
+    sleep(0.5)
+```
+
+---
+
+## ▶️ Como Simular no Wokwi
+
+1. Acesse [https://wokwi.com](https://wokwi.com)
+2. Crie um novo projeto com ESP32 e selecione MicroPython
+3. Copie e cole o código acima no arquivo `main.py`
+4. Importe o arquivo `diagram.json` (do Wokwi)
+5. Clique em ▶️ **"Simular"**
+
+---
+
+## 🚀 Ideias de Expansão
+
+* Adicionar um buzzer que toca em baixa luminosidade
+* Enviar os dados via Wi-Fi (MQTT ou HTTP)
+* Mostrar os dados num display OLED
+
+---
+
+Se quiser, posso transformar isso em um projeto pronto para subir no GitHub com todos os arquivos. Deseja isso também?
