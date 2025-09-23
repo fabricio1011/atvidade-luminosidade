@@ -1,0 +1,78 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard-half", "id": "bb2", "top": -147, "left": -256.4, "attrs": {} },
+      {
+        "type": "board-esp32-devkit-c-v4",
+        "id": "esp",
+        "top": 46.34,
+        "left": -44.3,
+        "rotate": 90,
+        "attrs": { "env": "micropython-20231227-v1.22.0" }
+      },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": -112,
+        "left": -517.6,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": -92.05,
+        "left": -220.8,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": -24.85,
+        "left": -124.8,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": -24.85,
+        "left": -28.8,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 130.8,
+        "left": -197.8,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": 111.6,
+        "left": 167,
+        "attrs": { "color": "orange" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "ldr1:VCC", "esp:3V3", "red", [ "h19.2", "v163.2", "h441.6" ] ],
+      [ "ldr1:AO", "esp:34", "orange", [ "v152.9", "h422.4" ] ],
+      [ "ldr1:GND", "r1:1", "black", [ "h0" ] ],
+      [ "r1:2", "esp:GND.1", "black", [ "h8.4", "v182.4", "h144" ] ],
+      [ "led1:C", "r2:1", "green", [ "h-9.2", "v-192" ] ],
+      [ "r2:2", "esp:GND.3", "green", [ "v0" ] ],
+      [ "r3:1", "esp:GND.2", "green", [ "v67.2", "h153.6", "v153.6" ] ],
+      [ "r3:2", "led2:C", "green", [ "h114", "v172.8" ] ],
+      [ "led2:A", "led1:A", "green", [ "v0" ] ],
+      [ "r3:1", "bb2:22b.g", "", [ "$bb" ] ],
+      [ "r3:2", "bb2:28b.g", "", [ "$bb" ] ],
+      [ "r2:1", "bb2:12b.g", "", [ "$bb" ] ],
+      [ "r2:2", "bb2:18b.g", "", [ "$bb" ] ],
+      [ "r1:1", "bb2:2t.b", "", [ "$bb" ] ],
+      [ "r1:2", "bb2:8t.b", "", [ "$bb" ] ]
+    ],
+    "dependencies": {}
+  }
