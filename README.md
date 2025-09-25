@@ -14,10 +14,10 @@ Este projeto simula um sistema de automação de iluminação usando um sensor d
 
 **📷 Insira aqui uma imagem do circuito montado ou da simulação no Wokwi:**
 
-<img width="1917" height="897" alt="Captura de tela 2025-09-23 171037" src="https://github.com/user-attachments/assets/ec2e2fb0-e926-488d-a9be-b42ef16903e6" />
-![WhatsApp Image 2025-09-23 at 17 19 03 (1)](https://github.com/user-attachments/assets/1ef31af4-988e-4faf-a314-068261920336)
-![WhatsApp Image 2025-09-23 at 17 19 03 (2)](https://github.com/user-attachments/assets/a16123ab-cc42-47a1-8def-277412b01d69)
-![WhatsApp Image 2025-09-23 at 17 19 03](https://github.com/user-attachments/assets/e210fde7-60ba-4c9e-a272-810464afff7f)
+<img width="![5BB7377D-D675-4A19-8BCC-E2762E7D49EA](https://github.com/user-attachments/assets/ec505744-06ed-42ed-8c25-e0fae8cbd2fc)
+1917" height="897" alt="Captura de tela 2025-09-23 171037" src="https://github.com/user-attachments/assets/ec2e2fb0-e926-488d-a9be-b42ef16903e6" />
+![61D9081D-EDB4-432C-9619-F2A0CF6B006C](https://github.com/user-attachments/assets/39584a04-6324-478c-8484-5d33a27bf7ea)
+
 
 ---
 
@@ -100,3 +100,4 @@ while True:
 ---
 
 Se quiser, posso transformar isso em um projeto pronto para subir no GitHub com todos os arquivos. Deseja isso também?
+
